@@ -94,7 +94,7 @@ function Tables() {
         <Box marginX={2}>
           <Card>
             <Text align={"center"} fontSize="sm" color={"#3182CE"}>
-              Bulletin
+              Pending Transactions
             </Text>
             <CardBody>
               <TableContainer
@@ -102,9 +102,47 @@ function Tables() {
                 justifyContent={"center"}
                 width={"100%"}
               >
-                <Text align={"center"} fontSize="sm" color={"#38A169"}>
-                  Demand
-                </Text>
+                <Table variant="striped" size={"sm"}>
+                  <Thead>
+                    <Tr>
+                      <Th>Company</Th>
+                      <Th>Price</Th>
+                      <Th>Quantity</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    <Tr>
+                      <Td>FranchiseMe</Td>
+                      <Td>45</Td>
+                      <Td>583</Td>
+                    </Tr>
+                    <Tr>
+                      <Td>S-watch</Td>
+                      <Td>21</Td>
+                      <Td>895</Td>
+                    </Tr>
+                    <Tr>
+                      <Td>InDriver</Td>
+                      <Td>36</Td>
+                      <Td>533</Td>
+                    </Tr>
+                  </Tbody>
+                </Table>
+              </TableContainer>
+            </CardBody>
+          </Card>
+        </Box>
+        <Box marginX={2}>
+          <Card>
+            <Text align={"center"} fontSize="sm" color={"#3182CE"}>
+              Holdings
+            </Text>
+            <CardBody>
+              <TableContainer
+                alignContent={"center"}
+                justifyContent={"center"}
+                width={"100%"}
+              >
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>
@@ -133,9 +171,6 @@ function Tables() {
                 </Table>
               </TableContainer>
               <TableContainer width={"100%"}>
-                <Text align={"center"} fontSize="sm" color={"#E53E3E"}>
-                  Supply
-                </Text>
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>
@@ -169,7 +204,7 @@ function Tables() {
         <Box marginX={2}>
           <Card>
             <Text align={"center"} fontSize="sm" color={"#3182CE"}>
-              Bulletin
+              Cash Statement
             </Text>
             <CardBody>
               <TableContainer
@@ -177,9 +212,6 @@ function Tables() {
                 justifyContent={"center"}
                 width={"100%"}
               >
-                <Text align={"center"} fontSize="sm" color={"#38A169"}>
-                  Demand
-                </Text>
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>
@@ -208,84 +240,6 @@ function Tables() {
                 </Table>
               </TableContainer>
               <TableContainer width={"100%"}>
-                <Text align={"center"} fontSize="sm" color={"#E53E3E"}>
-                  Supply
-                </Text>
-                <Table variant="striped" size={"sm"}>
-                  <Thead>
-                    <Tr>
-                      <Th>P</Th>
-                      <Th>Q</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                  </Tbody>
-                </Table>
-              </TableContainer>
-            </CardBody>
-          </Card>
-        </Box>
-        <Box marginX={2}>
-          <Card>
-            <Text align={"center"} fontSize="sm" color={"#3182CE"}>
-              Bulletin
-            </Text>
-            <CardBody>
-              <TableContainer
-                alignContent={"center"}
-                justifyContent={"center"}
-                width={"100%"}
-              >
-                <Text align={"center"} fontSize="sm" color={"#38A169"}>
-                  Demand
-                </Text>
-                <Table variant="striped" size={"sm"}>
-                  <Thead>
-                    <Tr>
-                      <Th>P</Th>
-                      <Th>Q</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                  </Tbody>
-                </Table>
-              </TableContainer>
-              <TableContainer width={"100%"}>
-                <Text align={"center"} fontSize="sm" color={"#E53E3E"}>
-                  Supply
-                </Text>
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>

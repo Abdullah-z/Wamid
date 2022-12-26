@@ -14,6 +14,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Select,
   SimpleGrid,
   Table,
   TableContainer,
@@ -74,11 +75,11 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
           <ModalBody backgroundColor={bgCol}>
             <SimpleGrid columns={{ sm: 1, md: 2, xl: 2 }}>
               <SimpleGrid>
-                <Input
-                  placeholder="Company Selection"
-                  size="md"
-                  marginBottom={2}
-                />
+                <Select placeholder="Company Selection">
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                  <option value="option3">Option 3</option>
+                </Select>
                 <Input placeholder="Quantity" size="md" marginBottom={2} />
                 <Input placeholder="Price" size="md" marginBottom={2} />
                 <Input placeholder="Value" size="md" marginBottom={2} />
