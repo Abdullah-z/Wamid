@@ -15,6 +15,15 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverFooter,
+  PopoverHeader,
+  PopoverTrigger,
+  Portal,
   SimpleGrid,
   Table,
   TableContainer,
@@ -33,6 +42,7 @@ import LineChart from "components/Charts/LineChart";
 import Card from "components/Card/Card";
 import BuySellModal from "./BuySellModal";
 import { globalStyles } from "theme/styles";
+import { InfoIcon } from "@chakra-ui/icons";
 
 const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -65,6 +75,32 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                     <Image height={10} src={data?.image} mr={1} />
                     <Text fontSize="lg">{data?.name}</Text>
                   </Box>
+                  <SimpleGrid
+                    display={"flex"}
+                    flexDirection={"row"}
+                    alignItems={"center"}
+                  >
+                    <Text ml={12} fontSize="xs">
+                      Financial
+                    </Text>
+                    <Popover>
+                      <PopoverTrigger>
+                        <InfoIcon w={4} h={4} ml={1} />
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <PopoverArrow />
+                        <PopoverCloseButton />
+                        {/* <PopoverHeader>Confirmation!</PopoverHeader> */}
+                        <PopoverBody fontSize={"xs"}>
+                          Every time you open a pull request, or push new
+                          changes to a branch, Netlify automatically builds a
+                          preview with a unique URL. Like a staging environment
+                          for every PR or branch, previews are perfect for
+                          testing and collaboration.
+                        </PopoverBody>
+                      </PopoverContent>
+                    </Popover>
+                  </SimpleGrid>
                 </SimpleGrid>
                 <SimpleGrid>
                   <Text align={"center"} fontSize="lg">

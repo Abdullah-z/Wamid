@@ -4,8 +4,10 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import { Separator } from "components/Separator/Separator";
 import { Image } from "@chakra-ui/react";
+import { DataState } from "hooks/DataContext";
 
 function Note(props) {
+  const { modalData, setModalData } = DataState();
   return (
     <div
       height={props.node.height}
@@ -13,6 +15,7 @@ function Note(props) {
       id={props.node.id}
       style={{ height: "100%" }}
       {...props.draggableItem}
+      onClick={() => setModalData(props.data)}
     >
       <Card>
         <Box display={"flex"} alignItems={"center"} flexDirection={"column"}>

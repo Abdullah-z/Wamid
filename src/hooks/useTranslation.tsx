@@ -12,7 +12,7 @@ export const TranslationProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [locale, setLocale] = useState("ar");
+  const [locale, setLocale] = useState("en");
 
   // Set the locale once at the beginning of your app.
   i18n.locale = locale;

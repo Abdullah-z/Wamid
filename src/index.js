@@ -23,17 +23,20 @@ import AuthLayout from "layouts/Auth.js";
 import AdminLayout from "layouts/Admin.js";
 import RTLLayout from "layouts/RTL.js";
 import { TranslationProvider } from "hooks";
+import DataContext from "hooks/DataContext";
 
 ReactDOM.render(
   <HashRouter>
-    <TranslationProvider>
-      <Switch>
-        <Route path={`/auth`} component={AuthLayout} />
-        <Route path={`/admin`} component={AdminLayout} />
-        <Route path={`/rtl`} component={RTLLayout} />
-        <Redirect from={`/`} to="/admin/dashboard" />s
-      </Switch>
-    </TranslationProvider>
+    <DataContext>
+      <TranslationProvider>
+        <Switch>
+          <Route path={`/auth`} component={AuthLayout} />
+          <Route path={`/admin`} component={AdminLayout} />
+          <Route path={`/rtl`} component={RTLLayout} />
+          <Redirect from={`/`} to="/admin/dashboard" />s
+        </Switch>
+      </TranslationProvider>
+    </DataContext>
   </HashRouter>,
   document.getElementById("root")
 );

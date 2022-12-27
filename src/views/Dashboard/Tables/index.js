@@ -146,52 +146,24 @@ function Tables() {
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>
-                      <Th>P</Th>
-                      <Th>Q</Th>
+                      <Th>Company</Th>
+                      <Th>Quantity</Th>
+                      <Th>Volume</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
                     <Tr>
+                      <Td>FranchiseMe</Td>
                       <Td>498</Td>
                       <Td>533</Td>
                     </Tr>
                     <Tr>
+                      <Td>S-watch</Td>
                       <Td>498</Td>
                       <Td>533</Td>
                     </Tr>
                     <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                  </Tbody>
-                </Table>
-              </TableContainer>
-              <TableContainer width={"100%"}>
-                <Table variant="striped" size={"sm"}>
-                  <Thead>
-                    <Tr>
-                      <Th>P</Th>
-                      <Th>Q</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
+                      <Td>InDriver</Td>
                       <Td>498</Td>
                       <Td>533</Td>
                     </Tr>
@@ -215,53 +187,25 @@ function Tables() {
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>
-                      <Th>P</Th>
-                      <Th>Q</Th>
+                      <Th>Date</Th>
+                      <Th>Amount</Th>
+                      <Th>Remaining Balance</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
                     <Tr>
                       <Td>498</Td>
                       <Td>533</Td>
+                      <Td>564</Td>
                     </Tr>
                     <Tr>
                       <Td>498</Td>
                       <Td>533</Td>
+                      <Td>489</Td>
                     </Tr>
                     <Tr>
                       <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                  </Tbody>
-                </Table>
-              </TableContainer>
-              <TableContainer width={"100%"}>
-                <Table variant="striped" size={"sm"}>
-                  <Thead>
-                    <Tr>
-                      <Th>P</Th>
-                      <Th>Q</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
-                      <Td>533</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>498</Td>
+                      <Td>759</Td>
                       <Td>533</Td>
                     </Tr>
                   </Tbody>

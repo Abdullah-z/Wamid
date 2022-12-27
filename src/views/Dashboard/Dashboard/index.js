@@ -62,20 +62,25 @@ import { useTranslation } from "../../../hooks/useTranslation";
 import BuySellModal from "customComponents/BuySellModal";
 import DetailsModal from "customComponents/DetailsModal";
 import Notes from "components/Draggable/Notes";
+import { DataState } from "hooks/DataContext";
+import DataContext from "hooks/DataContext";
 
 export default function Dashboard() {
   const iconBoxInside = useColorModeValue("white", "white");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [modalData, setModalData] = useState();
+  const { modalData, setModalData } = DataState();
   const [isBuying, setIsBuying] = useState(false);
   const { locale } = useTranslation();
-  console.log(locale);
+  console.log(modalData);
 
   const handleModal = function (x) {
     setModalData(x);
     console.log(modalData?.name);
     onOpen();
   };
+
+  const { symbol, setSymbol } = DataState();
+  console.log(symbol);
 
   return (
     <div>

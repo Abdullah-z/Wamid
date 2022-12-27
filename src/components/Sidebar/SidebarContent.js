@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Flex,
+  Image,
   Link,
   Stack,
   Text,
@@ -23,7 +24,7 @@ const SidebarContent = ({ logoText, routes }) => {
   let location = useLocation();
   // this is for the rest of the collapses
   const [state, setState] = React.useState({});
-
+  const logo = require("../../assets/img/Wamid-Logo-Black.png");
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
@@ -189,7 +190,7 @@ const SidebarContent = ({ logoText, routes }) => {
           alignItems="center"
           fontSize="11px"
         >
-          <CreativeTimLogo w="32px" h="32px" me="10px" />
+          <Image src={logo} height={"64px"} width={"128px"} />
           <Text fontSize="sm" mt="3px">
             {logoText}
           </Text>

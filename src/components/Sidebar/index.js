@@ -1,6 +1,6 @@
 /*eslint-disable*/
 // chakra imports
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import { Box, Image, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 import SidebarContent from "./SidebarContent";
@@ -14,7 +14,7 @@ function Sidebar(props) {
   const { t } = useTranslation();
 
   const { logoText, routes, sidebarVariant } = props;
-
+  const logo = require("../../assets/img/Wamid-Logo-Black.png");
   //  BRAND
   //  Chakra Color Mode
   let sidebarBg = "none";
@@ -49,7 +49,6 @@ function Sidebar(props) {
         >
           <SidebarContent
             routes={routes}
-            logoText={t("wamid")}
             display="none"
             sidebarVariant={sidebarVariant}
           />

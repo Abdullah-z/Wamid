@@ -47,6 +47,7 @@ function Notes() {
       node={node}
       index={index}
       change={node.price_change_percentage_24h}
+      data={node}
     ></Note>
   ));
 

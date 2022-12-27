@@ -1,237 +1,528 @@
+import React, { useState } from "react";
 // Chakra imports
 import {
   Box,
-  Button,
   Flex,
+  Button,
   FormControl,
   FormLabel,
-  HStack,
-  Icon,
+  Heading,
+  Image,
   Input,
   Link,
   Switch,
   Text,
   useColorModeValue,
+  background,
+  Checkbox,
+  Wrap,
+  WrapItem,
+  Avatar,
+  Select,
 } from "@chakra-ui/react";
 // Assets
+import signInImage from "assets/img/signInImage.png";
 import BgSignUp from "assets/img/BgSignUp.png";
-import React from "react";
-import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
+import { useTranslation } from "hooks";
+import Card from "components/Card/Card";
+import { CheckIcon } from "@chakra-ui/icons";
 
 function SignUp() {
+  // Chakra color mode
   const titleColor = useColorModeValue("teal.300", "teal.200");
-  const textColor = useColorModeValue("gray.700", "white");
-  const bgColor = useColorModeValue("white", "gray.700");
-  const bgIcons = useColorModeValue("teal.200", "rgba(255, 255, 255, 0.5)");
+  const textColor = useColorModeValue("gray.400", "white");
+  const { t } = useTranslation();
+  const imageurl = require("../../assets/img/Background.jpg");
+  const logo = require("../../assets/img/Wamid-Logo-Black.png");
+  const [step, setStep] = useState(1);
   return (
-    <Flex
-      direction='column'
-      alignSelf='center'
-      justifySelf='center'
-      overflow='hidden'>
-      <Box
-        position='absolute'
-        minH={{ base: "70vh", md: "50vh" }}
-        w={{ md: "calc(100vw - 50px)" }}
-        borderRadius={{ md: "15px" }}
-        left='0'
-        right='0'
-        bgRepeat='no-repeat'
-        overflow='hidden'
-        zIndex='-1'
-        top='0'
-        bgImage={BgSignUp}
-        bgSize='cover'
-        mx={{ md: "auto" }}
-        mt={{ md: "14px" }}></Box>
-      <Flex
-        direction='column'
-        textAlign='center'
-        justifyContent='center'
-        align='center'
-        mt='6.5rem'
-        mb='30px'>
-        <Text fontSize='4xl' color='white' fontWeight='bold'>
-          Welcome!
-        </Text>
-        <Text
-          fontSize='md'
-          color='white'
-          fontWeight='normal'
-          mt='10px'
-          mb='26px'
-          w={{ base: "90%", sm: "60%", lg: "40%", xl: "30%" }}>
-          Use these awesome forms to login or create new account in your project
-          for free.
-        </Text>
-      </Flex>
-      <Flex alignItems='center' justifyContent='center' mb='60px' mt='20px'>
+    <Box backgroundImage={imageurl}>
+      <Image src={logo} height={100} padding={3} />
+      <Flex position="relative" paddingBottom="15px">
         <Flex
-          direction='column'
-          w='445px'
-          background='transparent'
-          borderRadius='15px'
-          p='40px'
-          mx={{ base: "100px" }}
-          bg={bgColor}
-          boxShadow='0 20px 27px 0 rgb(0 0 0 / 5%)'>
-          <Text
-            fontSize='xl'
-            color={textColor}
-            fontWeight='bold'
-            textAlign='center'
-            mb='22px'>
-            Register With
-          </Text>
-          <HStack spacing='15px' justify='center' mb='22px'>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='15px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link href='#'>
-                <Icon
-                  as={FaFacebook}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='15px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link href='#'>
-                <Icon
-                  as={FaApple}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='15px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link href='#'>
-                <Icon
-                  as={FaGoogle}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-          </HStack>
-          <Text
-            fontSize='lg'
-            color='gray.400'
-            fontWeight='bold'
-            textAlign='center'
-            mb='22px'>
-            or
-          </Text>
-          <FormControl>
-            <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-              Name
-            </FormLabel>
-            <Input
-              fontSize='sm'
-              ms='4px'
-              borderRadius='15px'
-              type='text'
-              placeholder='Your full name'
-              mb='24px'
-              size='lg'
-            />
-            <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-              Email
-            </FormLabel>
-            <Input
-              fontSize='sm'
-              ms='4px'
-              borderRadius='15px'
-              type='email'
-              placeholder='Your email address'
-              mb='24px'
-              size='lg'
-            />
-            <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-              Password
-            </FormLabel>
-            <Input
-              fontSize='sm'
-              ms='4px'
-              borderRadius='15px'
-              type='password'
-              placeholder='Your password'
-              mb='24px'
-              size='lg'
-            />
-            <FormControl display='flex' alignItems='center' mb='24px'>
-              <Switch id='remember-login' colorScheme='teal' me='10px' />
-              <FormLabel htmlFor='remember-login' mb='0' fontWeight='normal'>
-                Remember me
-              </FormLabel>
-            </FormControl>
-            <Button
-              type='submit'
-              bg='teal.300'
-              fontSize='10px'
-              color='white'
-              fontWeight='bold'
-              w='100%'
-              h='45'
-              mb='24px'
-              _hover={{
-                bg: "teal.200",
-              }}
-              _active={{
-                bg: "teal.400",
-              }}>
-              SIGN UP
-            </Button>
-          </FormControl>
+          h={{ sm: "initial", md: "75vh", lg: "85vh" }}
+          w="100%"
+          maxW="1044px"
+          mx="auto"
+          justifyContent="center"
+          pt={{ sm: "100px", md: "0px" }}
+        >
           <Flex
-            flexDirection='column'
-            justifyContent='center'
-            alignItems='center'
-            maxW='100%'
-            mt='0px'>
-            <Text color={textColor} fontWeight='medium'>
-              Already have an account?
-              <Link
-                color={titleColor}
-                as='span'
-                ms='5px'
-                href='#'
-                fontWeight='bold'>
-                Sign In
-              </Link>
-            </Text>
+            alignItems="center"
+            justifyContent="start"
+            style={{ userSelect: "none" }}
+            w={{ base: "100%", md: "50%", lg: "42%" }}
+          >
+            <Flex direction="column" w="100%" background="transparent">
+              <Wrap display={"flex"} justifyContent={"center"} marginBottom={2}>
+                <WrapItem>
+                  <Avatar
+                    name={step <= 1 ? "1" : ""}
+                    backgroundColor={"rgba(92, 179, 209, .7)"}
+                    borderWidth={step === 1 ? 5 : 0}
+                    icon={
+                      step > 1 ? (
+                        <CheckIcon fontSize="1.5rem" color={"white"} />
+                      ) : (
+                        <></>
+                      )
+                    }
+                  />
+                </WrapItem>
+                <WrapItem>
+                  <Avatar
+                    name={step <= 2 ? "2" : ""}
+                    backgroundColor={"rgba(92, 179, 209, .7)"}
+                    borderWidth={step === 2 ? 5 : 0}
+                    icon={
+                      step > 2 ? (
+                        <CheckIcon fontSize="1.5rem" color={"white"} />
+                      ) : (
+                        <></>
+                      )
+                    }
+                  />
+                </WrapItem>
+
+                <WrapItem>
+                  <Avatar
+                    name={step <= 3 ? "3" : ""}
+                    backgroundColor={"rgba(92, 179, 209, .7)"}
+                    borderWidth={step === 3 ? 5 : 0}
+                    icon={
+                      step > 3 ? (
+                        <CheckIcon fontSize="1.5rem" color={"white"} />
+                      ) : (
+                        <></>
+                      )
+                    }
+                  />
+                </WrapItem>
+                <WrapItem>
+                  <Avatar
+                    name={step <= 4 ? "4" : ""}
+                    backgroundColor={"rgba(92, 179, 209, .7)"}
+                    borderWidth={step === 4 ? 5 : 0}
+                    icon={
+                      step > 4 ? (
+                        <CheckIcon fontSize="1.5rem" color={"white"} />
+                      ) : (
+                        <></>
+                      )
+                    }
+                  />
+                </WrapItem>
+              </Wrap>
+              <Card background={"rgba(92, 179, 209, .7)"}>
+                {step === 1 ? (
+                  <>
+                    <Heading
+                      textAlign={"center"}
+                      color={"white"}
+                      fontSize="32px"
+                    >
+                      {t("SignUp")}
+                    </Heading>
+                    <Text
+                      mb="36px"
+                      ms="4px"
+                      color={"white"}
+                      fontWeight="bold"
+                      fontSize="14px"
+                    >
+                      {/* {t("Sign_Description")} */}
+                    </Text>
+                    <FormControl>
+                      <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                        {t("Email")}
+                      </FormLabel>
+                      <Input
+                        backgroundColor={"white"}
+                        borderRadius="15px"
+                        mb="24px"
+                        fontSize="sm"
+                        type="text"
+                        placeholder="Your email adress"
+                        size="lg"
+                      />
+                      <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                        {t("Phone_Number")}
+                      </FormLabel>
+                      <Input
+                        backgroundColor={"white"}
+                        borderRadius="15px"
+                        mb="36px"
+                        fontSize="sm"
+                        type="password"
+                        placeholder="Your password"
+                        size="lg"
+                      />
+                      <Box
+                        display={"flex"}
+                        flexDirection={"row"}
+                        justifyContent="center"
+                      >
+                        <Box>
+                          <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                            {t("Password")}
+                          </FormLabel>
+                          <Input
+                            backgroundColor={"white"}
+                            htmlSize={20}
+                            width="auto"
+                            borderRadius="15px"
+                            mb="36px"
+                            fontSize="sm"
+                            type="password"
+                            size="lg"
+                            mx={1}
+                          />
+                        </Box>
+
+                        <Box>
+                          <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                            {t("Confirm_Password")}
+                          </FormLabel>
+                          <Input
+                            backgroundColor={"white"}
+                            htmlSize={20}
+                            width="auto"
+                            borderRadius="15px"
+                            mb="36px"
+                            fontSize="sm"
+                            type="password"
+                            size="lg"
+                            mx={1}
+                          />
+                        </Box>
+                      </Box>
+
+                      <Checkbox defaultChecked>
+                        I agree to all terms & conditions
+                      </Checkbox>
+                      <Button
+                        onClick={() => setStep(step + 1)}
+                        fontSize="15px"
+                        type="submit"
+                        bg="teal.300"
+                        w="100%"
+                        h="45"
+                        mb="20px"
+                        color="white"
+                        mt="20px"
+                        _hover={{
+                          bg: "teal.200",
+                        }}
+                        _active={{
+                          bg: "teal.400",
+                        }}
+                      >
+                        {t("Next")}
+                      </Button>
+                    </FormControl>
+                    <Text color={textColor} fontWeight="medium">
+                      {t("Dont_Have_Account")}
+                      <Link
+                        color={titleColor}
+                        as="span"
+                        ms="5px"
+                        fontWeight="bold"
+                      >
+                        {t("Sign_Up_Here")}
+                      </Link>
+                    </Text>
+                  </>
+                ) : step === 2 ? (
+                  <>
+                    <Heading
+                      textAlign={"center"}
+                      color={"white"}
+                      fontSize="32px"
+                    >
+                      {t("SMS_OTP_Verification")}
+                    </Heading>
+                    <Text
+                      align={"center"}
+                      mt={4}
+                      mb="36px"
+                      ms="4px"
+                      color={"white"}
+                      fontWeight="bold"
+                      fontSize="14px"
+                    >
+                      {t("SMS_OTP_DETAIL")}
+                    </Text>
+                    <FormControl>
+                      <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                        OTP
+                      </FormLabel>
+                      <Input
+                        backgroundColor={"white"}
+                        borderRadius="15px"
+                        mb="24px"
+                        fontSize="sm"
+                        type="text"
+                        size="lg"
+                      />
+
+                      <Box display={"flex"} flexDirection={"row"}>
+                        <Button
+                          mx={2}
+                          onClick={() => setStep(step - 1)}
+                          fontSize="15px"
+                          type="submit"
+                          bg="teal.300"
+                          w="100%"
+                          h="45"
+                          mb="20px"
+                          color="white"
+                          mt="20px"
+                          _hover={{
+                            bg: "teal.200",
+                          }}
+                          _active={{
+                            bg: "teal.400",
+                          }}
+                        >
+                          {t("Back")}
+                        </Button>
+                        <Button
+                          mx={2}
+                          onClick={() => setStep(step + 1)}
+                          fontSize="15px"
+                          type="submit"
+                          bg="teal.300"
+                          w="100%"
+                          h="45"
+                          mb="20px"
+                          color="white"
+                          mt="20px"
+                          _hover={{
+                            bg: "teal.200",
+                          }}
+                          _active={{
+                            bg: "teal.400",
+                          }}
+                        >
+                          {t("Next")}
+                        </Button>
+                      </Box>
+                    </FormControl>
+                    <Text color={textColor} fontWeight="medium">
+                      {t("Dont_Have_Account")}
+                      <Link
+                        color={titleColor}
+                        as="span"
+                        ms="5px"
+                        fontWeight="bold"
+                      >
+                        {t("Sign_Up_Here")}
+                      </Link>
+                    </Text>
+                  </>
+                ) : step === 3 ? (
+                  <>
+                    <Heading
+                      textAlign={"center"}
+                      color={"white"}
+                      fontSize="32px"
+                    >
+                      Confirm Registration
+                    </Heading>
+
+                    <FormControl>
+                      <FormLabel
+                        ms="4px"
+                        fontSize="sm"
+                        fontWeight="normal"
+                        mt={5}
+                      >
+                        {t("IdentityNumber")}
+                      </FormLabel>
+                      <Input
+                        backgroundColor={"white"}
+                        borderRadius="15px"
+                        mb="24px"
+                        fontSize="sm"
+                        type="text"
+                        size="lg"
+                      />
+                      <Select
+                        placeholder="Select Company"
+                        backgroundColor={"white"}
+                      >
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                      </Select>
+
+                      <Text
+                        align={"center"}
+                        mt={4}
+                        mb="36px"
+                        ms="4px"
+                        color={"white"}
+                        fontWeight="bold"
+                        fontSize="14px"
+                      >
+                        An OTP will be sent to your registered company phone
+                        number for KYC verification.
+                      </Text>
+
+                      <Box display={"flex"} flexDirection={"row"}>
+                        <Button
+                          mx={2}
+                          onClick={() => setStep(step - 1)}
+                          fontSize="15px"
+                          type="submit"
+                          bg="teal.300"
+                          w="100%"
+                          h="45"
+                          mb="20px"
+                          color="white"
+                          mt="20px"
+                          _hover={{
+                            bg: "teal.200",
+                          }}
+                          _active={{
+                            bg: "teal.400",
+                          }}
+                        >
+                          {t("Back")}
+                        </Button>
+                        <Button
+                          mx={2}
+                          onClick={() => setStep(step + 1)}
+                          fontSize="15px"
+                          type="submit"
+                          bg="teal.300"
+                          w="100%"
+                          h="45"
+                          mb="20px"
+                          color="white"
+                          mt="20px"
+                          _hover={{
+                            bg: "teal.200",
+                          }}
+                          _active={{
+                            bg: "teal.400",
+                          }}
+                        >
+                          {t("Next")}
+                        </Button>
+                      </Box>
+                    </FormControl>
+                    <Text color={textColor} fontWeight="medium">
+                      {t("Dont_Have_Account")}
+                      <Link
+                        color={titleColor}
+                        as="span"
+                        ms="5px"
+                        fontWeight="bold"
+                      >
+                        {t("Sign_Up_Here")}
+                      </Link>
+                    </Text>
+                  </>
+                ) : step === 4 ? (
+                  <>
+                    <Heading
+                      textAlign={"center"}
+                      color={"white"}
+                      fontSize="32px"
+                    >
+                      {t("SMS_OTP_Verification")}
+                    </Heading>
+                    <Text
+                      align={"center"}
+                      mt={4}
+                      mb="36px"
+                      ms="4px"
+                      color={"white"}
+                      fontWeight="bold"
+                      fontSize="14px"
+                    >
+                      A message with a verification code has been sent to your
+                      registered company phone number. Enter the code to review
+                      your KYC and get registerd.
+                    </Text>
+                    <FormControl>
+                      <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                        OTP
+                      </FormLabel>
+                      <Input
+                        backgroundColor={"white"}
+                        borderRadius="15px"
+                        mb="24px"
+                        fontSize="sm"
+                        type="text"
+                        size="lg"
+                      />
+
+                      <Box display={"flex"} flexDirection={"row"}>
+                        <Button
+                          mx={2}
+                          onClick={() => setStep(step - 1)}
+                          fontSize="15px"
+                          type="submit"
+                          bg="teal.300"
+                          w="100%"
+                          h="45"
+                          mb="20px"
+                          color="white"
+                          mt="20px"
+                          _hover={{
+                            bg: "teal.200",
+                          }}
+                          _active={{
+                            bg: "teal.400",
+                          }}
+                        >
+                          {t("Back")}
+                        </Button>
+                        <Button
+                          mx={2}
+                          onClick={() => setStep(step + 1)}
+                          fontSize="15px"
+                          type="submit"
+                          bg="teal.300"
+                          w="100%"
+                          h="45"
+                          mb="20px"
+                          color="white"
+                          mt="20px"
+                          _hover={{
+                            bg: "teal.200",
+                          }}
+                          _active={{
+                            bg: "teal.400",
+                          }}
+                        >
+                          {t("Next")}
+                        </Button>
+                      </Box>
+                    </FormControl>
+                    <Text color={textColor} fontWeight="medium">
+                      {t("Dont_Have_Account")}
+                      <Link
+                        color={titleColor}
+                        as="span"
+                        ms="5px"
+                        fontWeight="bold"
+                      >
+                        {t("Sign_Up_Here")}
+                      </Link>
+                    </Text>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </Card>
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </Box>
   );
 }
 
