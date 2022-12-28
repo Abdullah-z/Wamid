@@ -29,11 +29,11 @@ function SignIn() {
   const imageurl = require("../../assets/img/Background.jpg");
   const logo = require("../../assets/img/Wamid-Logo-Black.png");
   return (
-    <Box backgroundImage={imageurl}>
+    <Box backgroundImage={imageurl} h="calc(100vh)">
       <Image src={logo} height={100} padding={3} />
-      <Flex position="relative" paddingBottom="15px">
+      <Flex position="relative">
         <Flex
-          h={{ sm: "initial", md: "75vh", lg: "85vh" }}
+          h={{ sm: "initial", md: "86vh", lg: "86vh" }}
           w="100%"
           maxW="1044px"
           mx="auto"
@@ -46,20 +46,12 @@ function SignIn() {
             style={{ userSelect: "none" }}
             w={{ base: "100%", md: "50%", lg: "42%" }}
           >
-            <Flex direction="column" w="100%" background="transparent" p="48px">
+            <Flex direction="column" w="100%" background="transparent">
               <Card background={"rgba(92, 179, 209, .7)"}>
                 <Heading textAlign={"center"} color={"white"} fontSize="32px">
                   {t("Sign_In")}
                 </Heading>
-                {/* <Text
-                  mb="36px"
-                  ms="4px"
-                  color={"white"}
-                  fontWeight="bold"
-                  fontSize="14px"
-                >
-                  {t("Sign_Description")}
-                </Text> */}
+
                 <FormControl>
                   <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
                     {t("Email")}

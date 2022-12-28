@@ -282,19 +282,14 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                     <Text align={"center"} fontSize="sm" color={"#3182CE"}>
                       Market History
                     </Text>
-                    <CardBody>
-                      <TableContainer
-                        alignContent={"center"}
-                        justifyContent={"center"}
-                      >
+                    <CardBody alignContent={"center"} justifyContent={"center"}>
+                      <TableContainer>
                         <Table variant="striped" mb={2} size={"sm"}>
                           <Thead>
                             <Tr>
                               <Th>Time</Th>
                               <Th>Price (SAR)</Th>
                               <Th>Quantity</Th>
-                              <Th>Value</Th>
-                              <Th>Value</Th>
                             </Tr>
                           </Thead>
                           <Tbody>

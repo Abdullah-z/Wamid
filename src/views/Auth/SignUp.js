@@ -19,6 +19,9 @@ import {
   WrapItem,
   Avatar,
   Select,
+  PinInput,
+  PinInputField,
+  HStack,
 } from "@chakra-ui/react";
 // Assets
 import signInImage from "assets/img/signInImage.png";
@@ -36,11 +39,10 @@ function SignUp() {
   const logo = require("../../assets/img/Wamid-Logo-Black.png");
   const [step, setStep] = useState(1);
   return (
-    <Box backgroundImage={imageurl}>
+    <Box backgroundImage={imageurl} h="calc(100vh)">
       <Image src={logo} height={100} padding={3} />
-      <Flex position="relative" paddingBottom="15px">
+      <Flex position="relative">
         <Flex
-          h={{ sm: "initial", md: "75vh", lg: "85vh" }}
           w="100%"
           maxW="1044px"
           mx="auto"
@@ -139,7 +141,7 @@ function SignUp() {
                       <Input
                         backgroundColor={"white"}
                         borderRadius="15px"
-                        mb="24px"
+                        mb={2}
                         fontSize="sm"
                         type="text"
                         placeholder="Your email adress"
@@ -151,7 +153,7 @@ function SignUp() {
                       <Input
                         backgroundColor={"white"}
                         borderRadius="15px"
-                        mb="36px"
+                        mb={2}
                         fontSize="sm"
                         type="password"
                         placeholder="Your password"
@@ -256,14 +258,14 @@ function SignUp() {
                       <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
                         OTP
                       </FormLabel>
-                      <Input
-                        backgroundColor={"white"}
-                        borderRadius="15px"
-                        mb="24px"
-                        fontSize="sm"
-                        type="text"
-                        size="lg"
-                      />
+                      <Box display={"flex"} justifyContent={"center"}>
+                        <PinInput>
+                          <PinInputField mx={1} />
+                          <PinInputField mx={1} />
+                          <PinInputField mx={1} />
+                          <PinInputField mx={1} />
+                        </PinInput>
+                      </Box>
 
                       <Box display={"flex"} flexDirection={"row"}>
                         <Button

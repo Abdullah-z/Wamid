@@ -17,11 +17,13 @@ function Note(props) {
       {...props.draggableItem}
       onClick={() => setModalData(props.data)}
     >
-      <Card>
+      <Card backgroundColor={props.change > 0 ? "green.100" : "red.100"}>
         <Box display={"flex"} alignItems={"center"} flexDirection={"column"}>
           <Image height={10} width={10} src={props.icon} alt="" />
           {/* <Text size="sm">{props.title}</Text> */}
-          <Text size="sm">{props.description}</Text>
+          <Text size="sm" color={"black"}>
+            {props.description}
+          </Text>
           <Text size="sm" color={props.change > 0 ? "#38A169" : "#E53E3E"}>
             ${props.amount}
           </Text>

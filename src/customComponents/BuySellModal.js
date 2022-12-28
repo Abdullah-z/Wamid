@@ -75,14 +75,39 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
           <ModalBody backgroundColor={bgCol}>
             <SimpleGrid columns={{ sm: 1, md: 2, xl: 2 }}>
               <SimpleGrid>
-                <Select placeholder="Company Selection">
+                <Select
+                  color={"black"}
+                  placeholder="Company Selection"
+                  borderColor={"black"}
+                >
                   <option value="option1">Option 1</option>
                   <option value="option2">Option 2</option>
                   <option value="option3">Option 3</option>
                 </Select>
-                <Input placeholder="Quantity" size="md" marginBottom={2} />
-                <Input placeholder="Price" size="md" marginBottom={2} />
-                <Input placeholder="Value" size="md" marginBottom={2} />
+                <Input
+                  borderColor={"black"}
+                  color={"black"}
+                  placeholder="Quantity"
+                  _placeholder={{ opacity: 1, color: "gray" }}
+                  size="md"
+                  marginBottom={2}
+                />
+                <Input
+                  borderColor={"black"}
+                  color={"black"}
+                  placeholder="Price"
+                  _placeholder={{ opacity: 1, color: "gray" }}
+                  size="md"
+                  marginBottom={2}
+                />
+                <Input
+                  borderColor={"black"}
+                  color={"black"}
+                  placeholder="Value"
+                  _placeholder={{ opacity: 1, color: "gray" }}
+                  size="md"
+                  marginBottom={2}
+                />
               </SimpleGrid>
 
               <SimpleGrid alignItems={"center"} justifyContent={"center"}>
@@ -108,16 +133,16 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
                       </Thead>
                       <Tbody>
                         <Tr>
-                          <Td>498</Td>
-                          <Td>533</Td>
+                          <Td color={"black"}>498</Td>
+                          <Td color={"black"}>533</Td>
                         </Tr>
                         <Tr>
-                          <Td>498</Td>
-                          <Td>533</Td>
+                          <Td color={"black"}>498</Td>
+                          <Td color={"black"}>533</Td>
                         </Tr>
                         <Tr>
-                          <Td>498</Td>
-                          <Td>533</Td>
+                          <Td color={"black"}>498</Td>
+                          <Td color={"black"}>533</Td>
                         </Tr>
                       </Tbody>
                     </Table>
@@ -135,16 +160,16 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
                       </Thead>
                       <Tbody>
                         <Tr>
-                          <Td>498</Td>
-                          <Td>533</Td>
+                          <Td color={"black"}>498</Td>
+                          <Td color={"black"}>533</Td>
                         </Tr>
                         <Tr>
-                          <Td>498</Td>
-                          <Td>533</Td>
+                          <Td color={"black"}>498</Td>
+                          <Td color={"black"}>533</Td>
                         </Tr>
                         <Tr>
-                          <Td>498</Td>
-                          <Td>533</Td>
+                          <Td color={"black"}>498</Td>
+                          <Td color={"black"}>533</Td>
                         </Tr>
                       </Tbody>
                     </Table>

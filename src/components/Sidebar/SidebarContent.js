@@ -8,8 +8,10 @@ import {
   Link,
   Stack,
   Text,
+  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { isDark } from "@chakra-ui/theme-tools";
 import IconBox from "components/Icons/IconBox";
 import { CreativeTimLogo } from "components/Icons/Icons";
 import { Separator } from "components/Separator/Separator";
@@ -20,11 +22,13 @@ import { NavLink, useLocation } from "react-router-dom";
 // this function creates the links and collapses that appear in the sidebar (left menu)
 
 const SidebarContent = ({ logoText, routes }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   // to check for active links and opened collapses
   let location = useLocation();
   // this is for the rest of the collapses
   const [state, setState] = React.useState({});
-  const logo = require("../../assets/img/Wamid-Logo-Black.png");
+  const logoBlack = require("../../assets/img/Wamid-Logo-Black.png");
+  const logoWhite = require("../../assets/img/Wamid-Logo-White.png");
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
@@ -190,7 +194,11 @@ const SidebarContent = ({ logoText, routes }) => {
           alignItems="center"
           fontSize="11px"
         >
-          <Image src={logo} height={"64px"} width={"128px"} />
+          <Image
+            src={colorMode === "dark" ? logoWhite : logoBlack}
+            height={"64px"}
+            width={"128px"}
+          />
           <Text fontSize="sm" mt="3px">
             {logoText}
           </Text>

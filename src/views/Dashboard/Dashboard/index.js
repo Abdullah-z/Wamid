@@ -1,5 +1,6 @@
 // Chakra imports
 import {
+  Avatar,
   Box,
   Button,
   Divider,
@@ -19,6 +20,8 @@ import {
   Text,
   useColorModeValue,
   useDisclosure,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 // assets
 import peopleImage from "assets/img/people-image.png";
@@ -64,6 +67,7 @@ import DetailsModal from "customComponents/DetailsModal";
 import Notes from "components/Draggable/Notes";
 import { DataState } from "hooks/DataContext";
 import DataContext from "hooks/DataContext";
+import { DragHandleIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 export default function Dashboard() {
   const iconBoxInside = useColorModeValue("white", "white");
@@ -71,6 +75,7 @@ export default function Dashboard() {
   const { modalData, setModalData } = DataState();
   const [isBuying, setIsBuying] = useState(false);
   const { locale } = useTranslation();
+  const [isTableView, setIsTableView] = useState(false);
   console.log(modalData);
 
   const handleModal = function (x) {
@@ -88,116 +93,134 @@ export default function Dashboard() {
         <Grid
           templateColumns={{ md: "1fr", lg: "2.5fr 1fr" }}
           templateRows={{ md: "1fr auto", lg: "1fr" }}
-          my="26px"
-          gap="24px"
         >
           <SimpleGrid>
             <Tabs>
               <TabList>
-                <Tab>Card View</Tab>
-                <Tab>Table View</Tab>
+                <Tab>Registerd Companies</Tab>
+                {/* <Tab>Table View</Tab> */}
               </TabList>
 
               <TabPanels>
                 <TabPanel>
-                  {/* <SimpleGrid columns={{ sm: 1, md: 2, xl: 5 }} spacing="24px">
-                    {data.map((index) => {
-                      return (
-                        <>
-                          <div onClick={() => setModalData(index)}>
-                            <PaymentStatistics
-                              icon={index.image}
-                              title={index.symbol}
-                              description={index.name}
-                              amount={index.current_price.toFixed(2)}
-                              DynamicColor={
-                                index.price_change_percentage_24h > 0
-                                  ? "#38A169"
-                                  : "#E53E3E"
-                              }
-                            />
-                          </div>
-                        </>
-                      );
-                    })}
-                  </SimpleGrid> */}
-                  <div>
-                    <Notes />
-                  </div>
-                </TabPanel>
-                <TabPanel>
-                  <SimpleGrid columns={{ sm: 1, md: 2, xl: 1 }} spacing="24px">
-                    <Card>
-                      <TableContainer>
-                        <Table variant="simple" colorScheme="gray" size={"sm"}>
-                          <Thead>
-                            <Tr>
-                              <Th>Companies</Th>
-                              <Th>Price</Th>
-                              <Th>% Change</Th>
-                              <Th>Bid Qty.</Th>
-                              <Th>Bid Price</Th>
-                              <Th>Offer Qty.</Th>
-                              <Th>Offer Price</Th>
-                              <Th>Value</Th>
-                            </Tr>
-                          </Thead>
-                          <Tbody>
-                            {data.map((index) => {
-                              return (
-                                <Tr onClick={() => handleModal(index)}>
-                                  <Td>
-                                    <Box display={"flex"} flexDirection={"row"}>
-                                      <Image
-                                        width={"5"}
-                                        src={index.image}
-                                        mr={1}
-                                      />
-                                      <Text> {index.name}</Text>
-                                    </Box>
-                                  </Td>
-                                  <Td>{index.current_price}</Td>
-                                  <Td>
-                                    {index.price_change_percentage_24h.toFixed(
-                                      2
-                                    )}
-                                  </Td>
-                                  <Td backgroundColor={"#F0FFF4"}>
-                                    {index.price_change_24h.toFixed(2)}
-                                  </Td>
-                                  <Td backgroundColor={"#F0FFF4"}>
-                                    {index.current_price}
-                                  </Td>
-                                  <Td backgroundColor={"#FFF5F5"}>
-                                    {index.price_change_percentage_24h.toFixed(
-                                      2
-                                    )}
-                                  </Td>
-                                  <Td backgroundColor={"#FFF5F5"}>
-                                    {index.price_change_24h.toFixed(2)}
-                                  </Td>
-                                  <Td>{index.current_price}</Td>
-                                </Tr>
-                              );
-                            })}
-                          </Tbody>
-                          {/* <Tfoot>
-                        <Tr>
-                          <Th>To convert</Th>
-                          <Th>into</Th>
-                          <Th isNumeric>multiply by</Th>
-                        </Tr>
-                      </Tfoot> */}
-                        </Table>
-                      </TableContainer>
-                    </Card>
-                  </SimpleGrid>
+                  {!isTableView ? (
+                    <SimpleGrid
+                      columns={{ sm: 1, md: 2, xl: 1 }}
+                      spacing="24px"
+                    >
+                      <Notes />
+                    </SimpleGrid>
+                  ) : (
+                    <SimpleGrid
+                      columns={{ sm: 1, md: 2, xl: 1 }}
+                      spacing="24px"
+                    >
+                      <Card>
+                        <TableContainer>
+                          <Table
+                            variant="simple"
+                            colorScheme="gray"
+                            size={"sm"}
+                          >
+                            <Thead>
+                              <Tr>
+                                <Th>Companies</Th>
+                                <Th>Price</Th>
+                                <Th>% Change</Th>
+                                <Th>Bid Qty.</Th>
+                                <Th>Bid Price</Th>
+                                <Th>Offer Qty.</Th>
+                                <Th>Offer Price</Th>
+                                <Th>Value</Th>
+                              </Tr>
+                            </Thead>
+                            <Tbody>
+                              {data.map((index) => {
+                                return (
+                                  <Tr onClick={() => handleModal(index)}>
+                                    <Td>
+                                      <Box
+                                        display={"flex"}
+                                        flexDirection={"row"}
+                                      >
+                                        <Image
+                                          width={"5"}
+                                          src={index.image}
+                                          mr={1}
+                                        />
+                                        <Text> {index.name}</Text>
+                                      </Box>
+                                    </Td>
+                                    <Td>{index.current_price}</Td>
+                                    <Td>
+                                      {index.price_change_percentage_24h.toFixed(
+                                        2
+                                      )}
+                                    </Td>
+                                    <Td
+                                      color={"black"}
+                                      backgroundColor={"green.100"}
+                                    >
+                                      {index.price_change_24h.toFixed(2)}
+                                    </Td>
+                                    <Td
+                                      color={"black"}
+                                      backgroundColor={"green.100"}
+                                    >
+                                      {index.current_price}
+                                    </Td>
+                                    <Td
+                                      color={"black"}
+                                      backgroundColor={"red.100"}
+                                    >
+                                      {index.price_change_percentage_24h.toFixed(
+                                        2
+                                      )}
+                                    </Td>
+                                    <Td
+                                      color={"black"}
+                                      backgroundColor={"red.100"}
+                                    >
+                                      {index.price_change_24h.toFixed(2)}
+                                    </Td>
+                                    <Td>{index.current_price}</Td>
+                                  </Tr>
+                                );
+                              })}
+                            </Tbody>
+                          </Table>
+                        </TableContainer>
+                      </Card>
+                    </SimpleGrid>
+                  )}
                 </TabPanel>
               </TabPanels>
             </Tabs>
           </SimpleGrid>
 
           <SimpleGrid columns={{ sm: 1, md: 2, xl: 1 }}>
+            <Wrap>
+              <WrapItem>
+                <Avatar
+                  onClick={() => setIsTableView(false)}
+                  backgroundColor={isTableView ? "white" : "gray.300"}
+                  size="sm"
+                  icon={<DragHandleIcon />}
+                  borderWidth={2}
+                  borderColor={"grey"}
+                />
+              </WrapItem>
+              <WrapItem>
+                <Avatar
+                  onClick={() => setIsTableView(true)}
+                  backgroundColor={isTableView ? "gray.300" : "white"}
+                  size="sm"
+                  icon={<HamburgerIcon />}
+                  borderWidth={2}
+                  borderColor={"grey"}
+                />
+              </WrapItem>
+            </Wrap>
             {modalData ? (
               <Card p="16px" display="flex" align="center" justify="center">
                 <Box flexDirection={"row"} display={"flex"}>
@@ -333,14 +356,14 @@ export default function Dashboard() {
                 <div>
                   <BuySellModal
                     data={modalData}
-                    bgCol={"#F0FFF4"}
+                    bgCol={"green.100"}
                     type={"Buy"}
                     btnCol={"green"}
                     heading={"Buying Power"}
                   />
                   <BuySellModal
                     data={modalData}
-                    bgCol={"#FFF5F5"}
+                    bgCol={"red.100"}
                     type={"Sell"}
                     btnCol={"red"}
                     heading={"Available Quantity"}

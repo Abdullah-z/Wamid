@@ -14,26 +14,6 @@ const randomHeight = () =>
 
 console.log(data);
 
-const nodes = [
-  { id: "1", content: "one" },
-  { id: "2", content: "two" },
-  { id: "3", content: "three" },
-  { id: "4", content: "four" },
-  { id: "5", content: "five" },
-  { id: "6", content: "six" },
-  { id: "7", content: "seven" },
-  { id: "8", content: "eight" },
-  { id: "9", content: "nine" },
-  { id: "10", content: "ten" },
-  { id: "11", content: "eleven" },
-  { id: "12", content: "twelve" },
-  { id: "13", content: "thirteen" },
-  { id: "14", content: "fourteen" },
-  { id: "15", content: "fifteen" },
-  { id: "16", content: "sixteen" },
-  { id: "17", content: "seventeen" },
-];
-
 function Notes() {
   const [amount, setAmount] = useState(5);
 
@@ -53,9 +33,7 @@ function Notes() {
 
   return (
     <div className="App">
-      <SimpleGrid columns={{ sm: 1, md: 1, xl: 1 }}>
-        <DraggableMasonryLayout>{notes}</DraggableMasonryLayout>
-      </SimpleGrid>
+      <DraggableMasonryLayout>{notes}</DraggableMasonryLayout>
     </div>
   );
 }
