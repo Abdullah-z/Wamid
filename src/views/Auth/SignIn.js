@@ -20,6 +20,7 @@ import signInImage from "assets/img/signInImage.png";
 import BgSignUp from "assets/img/BgSignUp.png";
 import { useTranslation } from "hooks";
 import Card from "components/Card/Card";
+import Footer from "components/Footer/Footer";
 
 function SignIn() {
   // Chakra color mode
@@ -28,8 +29,9 @@ function SignIn() {
   const { t } = useTranslation();
   const imageurl = require("../../assets/img/Background.jpg");
   const logo = require("../../assets/img/Wamid-Logo-Black.png");
+  const { locale, setLocale } = useTranslation();
   return (
-    <Box backgroundImage={imageurl} h="calc(100vh)">
+    <Box backgroundImage={imageurl} backgroundSize={"cover"} h="calc(100vh)">
       <Image src={logo} height={100} padding={3} />
       <Flex position="relative">
         <Flex
@@ -53,7 +55,12 @@ function SignIn() {
                 </Heading>
 
                 <FormControl>
-                  <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                  <FormLabel
+                    ms="4px"
+                    fontSize="sm"
+                    color={"white"}
+                    fontWeight="normal"
+                  >
                     {t("Email")}
                   </FormLabel>
                   <Input
@@ -63,11 +70,18 @@ function SignIn() {
                     type="text"
                     placeholder="Your email adress"
                     size="lg"
+                    backgroundColor={"white"}
                   />
-                  <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                  <FormLabel
+                    color={"white"}
+                    ms="4px"
+                    fontSize="sm"
+                    fontWeight="normal"
+                  >
                     {t("Password")}
                   </FormLabel>
                   <Input
+                    backgroundColor={"white"}
                     borderRadius="15px"
                     mb="36px"
                     fontSize="sm"
@@ -82,6 +96,7 @@ function SignIn() {
                       mb="0"
                       ms="1"
                       fontWeight="normal"
+                      color={"white"}
                     >
                       {t("RememberMe")}
                     </FormLabel>
@@ -105,7 +120,7 @@ function SignIn() {
                     {t("Sign_In")}
                   </Button>
                 </FormControl>
-                <Text color={textColor} fontWeight="medium">
+                <Text color={textColor} fontWeight="medium" color={"white"}>
                   {t("Dont_Have_Account")}
                   <Link color={titleColor} as="span" ms="5px" fontWeight="bold">
                     {" "}
@@ -113,10 +128,23 @@ function SignIn() {
                   </Link>
                 </Text>
               </Card>
+              <Box alignContent={"center"} alignItems={"center"}>
+                <Text
+                  mt={1}
+                  align={"center"}
+                  onClick={() => {
+                    locale === "ar" ? setLocale("en") : setLocale("ar");
+                  }}
+                  color="gray.400"
+                >
+                  {locale === "ar" ? "English" : "العربية"}
+                </Text>
+              </Box>
             </Flex>
           </Flex>
         </Flex>
       </Flex>
+      <Footer />
     </Box>
   );
 }

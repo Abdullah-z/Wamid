@@ -10,7 +10,7 @@ const SalesOverview = ({ title, percentage, chart }) => {
   return (
     <Card p="28px 10px 16px 0px" mb={{ sm: "26px", lg: "0px" }}>
       <CardHeader mb="20px" pl="22px">
-        <Flex direction="column" alignSelf="flex-start">
+        {/* <Flex direction="column" alignSelf="flex-start">
           <Text fontSize="lg" color={textColor} fontWeight="bold" mb="6px">
             {title}
           </Text>
@@ -24,7 +24,7 @@ const SalesOverview = ({ title, percentage, chart }) => {
             </Text>{" "}
             in 2021
           </Text>
-        </Flex>
+        </Flex> */}
       </CardHeader>
       <Box w="100%" ps="8px">
         {chart}

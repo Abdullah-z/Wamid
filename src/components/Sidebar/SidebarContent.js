@@ -16,6 +16,7 @@ import IconBox from "components/Icons/IconBox";
 import { CreativeTimLogo } from "components/Icons/Icons";
 import { Separator } from "components/Separator/Separator";
 import { SidebarHelp } from "components/Sidebar/SidebarHelp";
+import { useTranslation } from "hooks";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -23,6 +24,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 const SidebarContent = ({ logoText, routes }) => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const { locale } = useTranslation();
   // to check for active links and opened collapses
   let location = useLocation();
   // this is for the rest of the collapses

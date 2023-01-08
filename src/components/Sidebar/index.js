@@ -11,7 +11,7 @@ function Sidebar(props) {
   // to check for active links and opened collapses
   const mainPanel = React.useRef();
   let variantChange = "0.2s linear";
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   const { logoText, routes, sidebarVariant } = props;
   const logo = require("../../assets/img/Wamid-Logo-Black.png");

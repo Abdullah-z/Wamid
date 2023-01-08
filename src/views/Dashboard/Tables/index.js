@@ -31,9 +31,11 @@ import SalesOverview from "../Dashboard/components/SalesOverview";
 import LineChart from "components/Charts/LineChart";
 import BarChart from "components/Charts/BarChart";
 import PieChart from "customComponents/PieChart";
+import { useTranslation } from "hooks";
 
 function Tables() {
   const iconBoxInside = useColorModeValue("white", "white");
+  const { t } = useTranslation();
   return (
     <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
       <Grid
@@ -45,19 +47,19 @@ function Tables() {
         <Box>
           <SimpleGrid columns={{ sm: 1, md: 3, xl: 3 }} spacing="24px">
             <MiniStatistics
-              title={"Total Cash"}
+              title={t("totalCash")}
               amount={"$53,000"}
               percentage={55}
               icon={<WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
             />
             <MiniStatistics
-              title={"Holding"}
+              title={t("holding")}
               amount={"$53,000"}
               percentage={55}
               icon={<BsPieChart h={"24px"} w={"24px"} color={iconBoxInside} />}
             />
             <MiniStatistics
-              title={"Gain/Loss"}
+              title={t("gainLoss")}
               amount={"$53,000"}
               percentage={55}
               icon={<BsGraphUp h={"24px"} w={"24px"} color={iconBoxInside} />}
@@ -84,7 +86,7 @@ function Tables() {
 
         <SimpleGrid columns={{ sm: 1, md: 2, xl: 1 }}>
           <OrdersOverview
-            title={"Notifications"}
+            title={t("Notifications")}
             amount={30}
             data={timelineData}
           />
@@ -94,7 +96,7 @@ function Tables() {
         <Box marginX={2}>
           <Card>
             <Text align={"center"} fontSize="sm" color={"#3182CE"}>
-              Pending Transactions
+              {t("pendingTransactions")}
             </Text>
             <CardBody>
               <TableContainer
@@ -105,9 +107,9 @@ function Tables() {
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>
-                      <Th>Company</Th>
-                      <Th>Price</Th>
-                      <Th>Quantity</Th>
+                      <Th> {t("company")}</Th>
+                      <Th> {t("price")}</Th>
+                      <Th> {t("quantity")}</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
@@ -135,7 +137,7 @@ function Tables() {
         <Box marginX={2}>
           <Card>
             <Text align={"center"} fontSize="sm" color={"#3182CE"}>
-              Holdings
+              {t("holding")}
             </Text>
             <CardBody>
               <TableContainer
@@ -146,9 +148,9 @@ function Tables() {
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>
-                      <Th>Company</Th>
-                      <Th>Quantity</Th>
-                      <Th>Volume</Th>
+                      <Th> {t("company")}</Th>
+                      <Th> {t("quantity")}</Th>
+                      <Th> {t("volume")}</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
@@ -176,7 +178,7 @@ function Tables() {
         <Box marginX={2}>
           <Card>
             <Text align={"center"} fontSize="sm" color={"#3182CE"}>
-              Cash Statement
+              {t("cashStatement")}
             </Text>
             <CardBody>
               <TableContainer
@@ -187,9 +189,9 @@ function Tables() {
                 <Table variant="striped" size={"sm"}>
                   <Thead>
                     <Tr>
-                      <Th>Date</Th>
-                      <Th>Amount</Th>
-                      <Th>Remaining Balance</Th>
+                      <Th> {t("date")}</Th>
+                      <Th> {t("amount")}</Th>
+                      <Th> {t("remainingBalance")}</Th>
                     </Tr>
                   </Thead>
                   <Tbody>

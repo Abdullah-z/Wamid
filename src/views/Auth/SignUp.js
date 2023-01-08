@@ -29,6 +29,7 @@ import BgSignUp from "assets/img/BgSignUp.png";
 import { useTranslation } from "hooks";
 import Card from "components/Card/Card";
 import { CheckIcon } from "@chakra-ui/icons";
+import Footer from "components/Footer/Footer";
 
 function SignUp() {
   // Chakra color mode
@@ -39,7 +40,7 @@ function SignUp() {
   const logo = require("../../assets/img/Wamid-Logo-Black.png");
   const [step, setStep] = useState(1);
   return (
-    <Box backgroundImage={imageurl} h="calc(100vh)">
+    <Box backgroundImage={imageurl} backgroundSize={"cover"} h="calc(100vh)">
       <Image src={logo} height={100} padding={3} />
       <Flex position="relative">
         <Flex
@@ -135,7 +136,12 @@ function SignUp() {
                       {/* {t("Sign_Description")} */}
                     </Text>
                     <FormControl>
-                      <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                      <FormLabel
+                        color={"white"}
+                        ms="4px"
+                        fontSize="sm"
+                        fontWeight="normal"
+                      >
                         {t("Email")}
                       </FormLabel>
                       <Input
@@ -147,7 +153,12 @@ function SignUp() {
                         placeholder="Your email adress"
                         size="lg"
                       />
-                      <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                      <FormLabel
+                        color={"white"}
+                        ms="4px"
+                        fontSize="sm"
+                        fontWeight="normal"
+                      >
                         {t("Phone_Number")}
                       </FormLabel>
                       <Input
@@ -165,7 +176,12 @@ function SignUp() {
                         justifyContent="center"
                       >
                         <Box>
-                          <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                          <FormLabel
+                            color={"white"}
+                            ms="4px"
+                            fontSize="sm"
+                            fontWeight="normal"
+                          >
                             {t("Password")}
                           </FormLabel>
                           <Input
@@ -182,7 +198,12 @@ function SignUp() {
                         </Box>
 
                         <Box>
-                          <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                          <FormLabel
+                            color={"white"}
+                            ms="4px"
+                            fontSize="sm"
+                            fontWeight="normal"
+                          >
                             {t("Confirm_Password")}
                           </FormLabel>
                           <Input
@@ -199,7 +220,7 @@ function SignUp() {
                         </Box>
                       </Box>
 
-                      <Checkbox defaultChecked>
+                      <Checkbox color={"white"} defaultChecked>
                         I agree to all terms & conditions
                       </Checkbox>
                       <Button
@@ -222,17 +243,6 @@ function SignUp() {
                         {t("Next")}
                       </Button>
                     </FormControl>
-                    <Text color={textColor} fontWeight="medium">
-                      {t("Dont_Have_Account")}
-                      <Link
-                        color={titleColor}
-                        as="span"
-                        ms="5px"
-                        fontWeight="bold"
-                      >
-                        {t("Sign_Up_Here")}
-                      </Link>
-                    </Text>
                   </>
                 ) : step === 2 ? (
                   <>
@@ -255,15 +265,20 @@ function SignUp() {
                       {t("SMS_OTP_DETAIL")}
                     </Text>
                     <FormControl>
-                      <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                      <FormLabel
+                        color={"white"}
+                        ms="4px"
+                        fontSize="sm"
+                        fontWeight="normal"
+                      >
                         OTP
                       </FormLabel>
                       <Box display={"flex"} justifyContent={"center"}>
                         <PinInput>
-                          <PinInputField mx={1} />
-                          <PinInputField mx={1} />
-                          <PinInputField mx={1} />
-                          <PinInputField mx={1} />
+                          <PinInputField mx={1} color={"white"} />
+                          <PinInputField mx={1} color={"white"} />
+                          <PinInputField mx={1} color={"white"} />
+                          <PinInputField mx={1} color={"white"} />
                         </PinInput>
                       </Box>
 
@@ -310,17 +325,6 @@ function SignUp() {
                         </Button>
                       </Box>
                     </FormControl>
-                    <Text color={textColor} fontWeight="medium">
-                      {t("Dont_Have_Account")}
-                      <Link
-                        color={titleColor}
-                        as="span"
-                        ms="5px"
-                        fontWeight="bold"
-                      >
-                        {t("Sign_Up_Here")}
-                      </Link>
-                    </Text>
                   </>
                 ) : step === 3 ? (
                   <>
@@ -338,6 +342,7 @@ function SignUp() {
                         fontSize="sm"
                         fontWeight="normal"
                         mt={5}
+                        color={"white"}
                       >
                         {t("IdentityNumber")}
                       </FormLabel>
@@ -414,17 +419,6 @@ function SignUp() {
                         </Button>
                       </Box>
                     </FormControl>
-                    <Text color={textColor} fontWeight="medium">
-                      {t("Dont_Have_Account")}
-                      <Link
-                        color={titleColor}
-                        as="span"
-                        ms="5px"
-                        fontWeight="bold"
-                      >
-                        {t("Sign_Up_Here")}
-                      </Link>
-                    </Text>
                   </>
                 ) : step === 4 ? (
                   <>
@@ -449,7 +443,12 @@ function SignUp() {
                       your KYC and get registerd.
                     </Text>
                     <FormControl>
-                      <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                      <FormLabel
+                        color={"white"}
+                        ms="4px"
+                        fontSize="sm"
+                        fontWeight="normal"
+                      >
                         OTP
                       </FormLabel>
                       <Input
@@ -504,17 +503,6 @@ function SignUp() {
                         </Button>
                       </Box>
                     </FormControl>
-                    <Text color={textColor} fontWeight="medium">
-                      {t("Dont_Have_Account")}
-                      <Link
-                        color={titleColor}
-                        as="span"
-                        ms="5px"
-                        fontWeight="bold"
-                      >
-                        {t("Sign_Up_Here")}
-                      </Link>
-                    </Text>
                   </>
                 ) : (
                   <></>

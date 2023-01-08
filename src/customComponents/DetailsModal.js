@@ -43,15 +43,18 @@ import Card from "components/Card/Card";
 import BuySellModal from "./BuySellModal";
 import { globalStyles } from "theme/styles";
 import { InfoIcon } from "@chakra-ui/icons";
+import { useTranslation } from "hooks";
 
 const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t } = useTranslation();
+  const { locale } = useTranslation();
 
   let color = globalStyles.colors.gray;
   console.log(color);
   return (
-    <>
-      <Button onClick={onOpen}>Details</Button>
+    <div>
+      <Button onClick={onOpen}>{t("details")}</Button>
 
       <Modal
         isOpen={isOpen}
@@ -61,8 +64,10 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
         size={"6xl"}
         isCentered
       >
-        <Flex>
-          <ModalOverlay />
+        <Flex style={{ direction: locale === "ar" ? "rtl" : "ltr" }}>
+          <ModalOverlay
+            style={{ direction: locale === "ar" ? "rtl" : "ltr" }}
+          />
           <ModalContent>
             <ModalHeader>
               <SimpleGrid columns={{ sm: 1, md: 3, xl: 3 }}>
@@ -72,7 +77,11 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                     flexDirection={"row"}
                     alignItems={"center"}
                   >
-                    <Image height={10} src={data?.image} mr={1} />
+                    <Image
+                      height={10}
+                      src={data?.image}
+                      mr={locale === "ar" ? 5 : 1}
+                    />
                     <Text fontSize="lg">{data?.name}</Text>
                   </Box>
                   <SimpleGrid
@@ -89,7 +98,7 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                       </PopoverTrigger>
                       <PopoverContent>
                         <PopoverArrow />
-                        <PopoverCloseButton />
+                        {/* <PopoverCloseButton /> */}
                         {/* <PopoverHeader>Confirmation!</PopoverHeader> */}
                         <PopoverBody fontSize={"xs"}>
                           Every time you open a pull request, or push new
@@ -104,7 +113,7 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                 </SimpleGrid>
                 <SimpleGrid>
                   <Text align={"center"} fontSize="lg">
-                    1,000,000 SAR
+                    1,000,000 {t("SAR")}
                   </Text>
 
                   <Text align={"center"} fontSize="sm">
@@ -116,16 +125,16 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                     <BuySellModal
                       data={data}
                       bgCol={"#F0FFF4"}
-                      type={"Buy"}
+                      type={t("buy")}
                       btnCol={"green"}
-                      heading={"Buying Power"}
+                      heading={t("buyingPower")}
                     />
                     <BuySellModal
                       data={data}
                       bgCol={"#FFF5F5"}
-                      type={"Sell"}
+                      type={t("sell")}
                       btnCol={"red"}
-                      heading={"Available Quantity"}
+                      heading={t("availQuantity")}
                     />
                   </Box>
                 </SimpleGrid>
@@ -141,47 +150,47 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                     <Box>
                       <Box display={"flex"} flexDirection={"row"}>
                         <Text as="b" fontSize={"large"} mr={1}>
-                          Overview
+                          {t("overview")}
                         </Text>
-                        <Text color={"gray.500"}>(Past 24 hours)</Text>
+                        <Text color={"gray.500"}>{t("past24hours")}</Text>
                       </Box>
                       <Box display={"flex"} flexDirection={"row"}>
-                        <Text width={"50%"}>No. of Trades</Text>
+                        <Text width={"50%"}>{t("NoOfTrades")}</Text>
                         <Text width={"50%"} align={"right"}>
                           58
                         </Text>
                       </Box>
                       <Divider orientation="horizontal" />
                       <Box display={"flex"} flexDirection={"row"}>
-                        <Text width={"50%"}>Avg. Ownership Transfer Size</Text>
+                        <Text width={"50%"}>{t("AvgOwnTransSize")}</Text>
                         <Text align={"right"} width={"50%"}>
                           95
                         </Text>
                       </Box>
                       <Divider orientation="horizontal" />
                       <Box display={"flex"} flexDirection={"row"}>
-                        <Text width={"50%"}>Volume Ownership Transfer</Text>
+                        <Text width={"50%"}>{t("VolOwnTrans")}</Text>
                         <Text align={"right"} width={"50%"}>
                           592,214
                         </Text>
                       </Box>
                       <Divider orientation="horizontal" />
                       <Box display={"flex"} flexDirection={"row"}>
-                        <Text width={"50%"}>Value Ownership Transfer</Text>
+                        <Text width={"50%"}>{t("ValOwnsTrans")}</Text>
                         <Text align={"right"} width={"50%"}>
                           8,557,761
                         </Text>
                       </Box>
                       <Divider orientation="horizontal" />
                       <Box display={"flex"} flexDirection={"row"}>
-                        <Text width={"50%"}>High</Text>
+                        <Text width={"50%"}>{t("high")}</Text>
                         <Text align={"right"} width={"50%"}>
                           16
                         </Text>
                       </Box>
                       <Divider orientation="horizontal" />
                       <Box display={"flex"} flexDirection={"row"}>
-                        <Text width={"50%"}>Low</Text>
+                        <Text width={"50%"}>{t("low")}</Text>
                         <Text align={"right"} width={"50%"}>
                           9
                         </Text>
@@ -193,8 +202,8 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
 
                 <SimpleGrid margin={1}>
                   <SalesOverview
-                    title={"Sales Overview"}
-                    percentage={5}
+                    // title={t("performance")}
+                    // percentage={5}
                     chart={<LineChart />}
                   />
                 </SimpleGrid>
@@ -204,7 +213,7 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                 <SimpleGrid margin={1}>
                   <Card>
                     <Text align={"center"} fontSize="sm" color={"#3182CE"}>
-                      Bulletin
+                      {t("bulletin")}
                     </Text>
                     <CardBody>
                       <TableContainer
@@ -213,13 +222,13 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                         width={"100%"}
                       >
                         <Text align={"center"} fontSize="sm" color={"#38A169"}>
-                          Demand
+                          {t("demand")}
                         </Text>
                         <Table variant="striped" size={"sm"}>
                           <Thead>
                             <Tr>
-                              <Th>P</Th>
-                              <Th>Q</Th>
+                              <Th>{t("price")}</Th>
+                              <Th>{t("quantity")}</Th>
                             </Tr>
                           </Thead>
                           <Tbody>
@@ -244,13 +253,13 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                       </TableContainer>
                       <TableContainer width={"100%"}>
                         <Text align={"center"} fontSize="sm" color={"#E53E3E"}>
-                          Supply
+                          {t("supply")}
                         </Text>
                         <Table variant="striped" size={"sm"}>
                           <Thead>
                             <Tr>
-                              <Th>P</Th>
-                              <Th>Q</Th>
+                              <Th>{t("price")}</Th>
+                              <Th>{t("quantity")}</Th>
                             </Tr>
                           </Thead>
                           <Tbody>
@@ -280,16 +289,16 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
                 <SimpleGrid margin={1}>
                   <Card>
                     <Text align={"center"} fontSize="sm" color={"#3182CE"}>
-                      Market History
+                      {t("marketHistory")}
                     </Text>
                     <CardBody alignContent={"center"} justifyContent={"center"}>
                       <TableContainer>
                         <Table variant="striped" mb={2} size={"sm"}>
                           <Thead>
                             <Tr>
-                              <Th>Time</Th>
-                              <Th>Price (SAR)</Th>
-                              <Th>Quantity</Th>
+                              <Th>{t("time")}</Th>
+                              <Th>{t("price")}</Th>
+                              <Th>{t("quantity")}</Th>
                             </Tr>
                           </Thead>
                           <Tbody>
@@ -339,7 +348,7 @@ const DetailsModal = ({ data, bgCol, type, btnCol, heading }) => {
           </ModalContent>
         </Flex>
       </Modal>
-    </>
+    </div>
   );
 };
 

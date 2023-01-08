@@ -85,11 +85,11 @@ export const barChartOptions = {
 
 export const lineChartData = [
   {
-    name: "Mobile apps",
+    name: "Volume Traded",
     data: [21, 45, 75, 26, 48, 66, 32, 68, 77],
   },
   {
-    name: "Websites",
+    name: "Volume Traded",
     data: [39, 54, 67, 43, 86, 45, 35, 75, 88],
   },
 ];

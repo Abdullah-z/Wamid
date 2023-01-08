@@ -21,7 +21,6 @@ export default function Footer(props) {
       }}
       justifyContent="space-between"
       px="30px"
-      pb="20px"
     >
       <Text
         color="gray.400"
@@ -62,7 +61,7 @@ export default function Footer(props) {
           : " for a better web"} */}
       </Text>
       <List display="flex">
-        <ListItem
+        {/* <ListItem
           me={{
             base: "20px",
             md: "44px",
@@ -76,8 +75,8 @@ export default function Footer(props) {
           >
             {locale === "ar" ? "English" : "العربية"}
           </Button>
-        </ListItem>
-        <ListItem
+        </ListItem> */}
+        {/* <ListItem
           me={{
             base: "20px",
             md: "44px",
@@ -86,8 +85,8 @@ export default function Footer(props) {
           <Link color="gray.400" href="https://www.simmmple.com">
             {document.documentElement.dir === "rtl" ? "سيممبل" : "Simmmple"}
           </Link>
-        </ListItem>{" "}
-        */}
+        </ListItem>
+
         <ListItem
           me={{
             base: "20px",
@@ -101,16 +100,17 @@ export default function Footer(props) {
           >
             {document.documentElement.dir === "rtl" ? "مدونة" : "Blog"}
           </Link>
-        </ListItem>
-        <ListItem>
+        </ListItem> */}
+        {/* <ListItem>
           <Link
+            onClick={() => {
+              locale === "ar" ? setLocale("en") : setLocale("ar");
+            }}
             color="gray.400"
-            href="#license"
-            href="https://www.creative-tim.com/license"
           >
-            {document.documentElement.dir === "rtl" ? "رخصة" : "License"}
+            {locale === "ar" ? "English" : "العربية"}
           </Link>
-        </ListItem>
+        </ListItem> */}
       </List>
     </Flex>
   );

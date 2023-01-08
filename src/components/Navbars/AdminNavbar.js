@@ -1,18 +1,25 @@
 // Chakra Imports
+import { SearchIcon } from "@chakra-ui/icons";
 import {
   Box,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   Flex,
+  IconButton,
+  Input,
+  InputGroup,
+  InputLeftElement,
   Link,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useTranslation } from "hooks";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import AdminNavbarLinks from "./AdminNavbarLinks";
 
 export default function AdminNavbar(props) {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const {
     variant,
@@ -35,6 +42,9 @@ export default function AdminNavbar(props) {
   let navbarBorder = "transparent";
   let secondaryMargin = "0px";
   let paddingX = "15px";
+  let inputBg = useColorModeValue("white", "gray.800");
+  let mainTeal = useColorModeValue("teal.300", "teal.300");
+  let searchIcon = useColorModeValue("gray.700", "gray.200");
   if (props.fixed === true)
     if (scrolled === true) {
       navbarPosition = "fixed";
@@ -146,6 +156,49 @@ export default function AdminNavbar(props) {
             {brandText}
           </Link>
         </Box> */}
+        <InputGroup
+          cursor="pointer"
+          bg={inputBg}
+          borderRadius="15px"
+          w={{
+            sm: "128px",
+            md: "200px",
+          }}
+          me={{ sm: "auto", md: "20px" }}
+          _focus={{
+            borderColor: { mainTeal },
+          }}
+          _active={{
+            borderColor: { mainTeal },
+          }}
+        >
+          <InputLeftElement
+            children={
+              <IconButton
+                bg="inherit"
+                borderRadius="inherit"
+                _hover="none"
+                _active={{
+                  bg: "inherit",
+                  transform: "none",
+                  borderColor: "transparent",
+                }}
+                _focus={{
+                  boxShadow: "none",
+                }}
+                icon={<SearchIcon color={searchIcon} w="15px" h="15px" />}
+              ></IconButton>
+            }
+          />
+          <Input
+            variant="filled"
+            fontSize="xs"
+            py="11px"
+            color={mainText}
+            placeholder={t("searchProject")}
+            borderRadius="inherit"
+          />
+        </InputGroup>
         <Box ms="auto" w={{ sm: "100%", md: "unset" }}>
           <AdminNavbarLinks
             onOpen={props.onOpen}

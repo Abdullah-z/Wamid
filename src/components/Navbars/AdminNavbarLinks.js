@@ -2,6 +2,7 @@
 import { BellIcon, SearchIcon } from "@chakra-ui/icons";
 // Chakra Imports
 import {
+  Avatar,
   Button,
   Flex,
   IconButton,
@@ -14,6 +15,7 @@ import {
   MenuList,
   Text,
   useColorModeValue,
+  WrapItem,
 } from "@chakra-ui/react";
 // Assets
 import avatar1 from "assets/img/avatars/avatar1.png";
@@ -53,48 +55,6 @@ export default function HeaderLinks(props) {
       alignItems="center"
       flexDirection="row"
     >
-      <InputGroup
-        cursor="pointer"
-        bg={inputBg}
-        borderRadius="15px"
-        w={{
-          sm: "128px",
-          md: "200px",
-        }}
-        me={{ sm: "auto", md: "20px" }}
-        _focus={{
-          borderColor: { mainTeal },
-        }}
-        _active={{
-          borderColor: { mainTeal },
-        }}
-      >
-        <InputLeftElement
-          children={
-            <IconButton
-              bg="inherit"
-              borderRadius="inherit"
-              _hover="none"
-              _active={{
-                bg: "inherit",
-                transform: "none",
-                borderColor: "transparent",
-              }}
-              _focus={{
-                boxShadow: "none",
-              }}
-              icon={<SearchIcon color={searchIcon} w="15px" h="15px" />}
-            ></IconButton>
-          }
-        />
-        <Input
-          fontSize="xs"
-          py="11px"
-          color={mainText}
-          placeholder="Type here..."
-          borderRadius="inherit"
-        />
-      </InputGroup>
       {/* <NavLink to="/auth/signin"> */}
       <Button
         ms="0px"
@@ -111,7 +71,14 @@ export default function HeaderLinks(props) {
         }
         leftIcon={
           document.documentElement.dir ? (
-            <ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />
+            // <ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />
+            <WrapItem>
+              <Avatar
+                size="md"
+                name="Dan Abrahmov"
+                src="https://bit.ly/dan-abramov"
+              />
+            </WrapItem>
           ) : (
             ""
           )

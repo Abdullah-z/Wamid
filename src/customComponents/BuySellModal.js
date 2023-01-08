@@ -28,9 +28,11 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import CardBody from "components/Card/CardBody";
+import { useTranslation } from "hooks";
 
 const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t } = useTranslation();
   return (
     <>
       <Button onClick={onOpen} colorScheme={btnCol} width={"30%"} marginX={2}>
@@ -70,14 +72,14 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
             </SimpleGrid>
           </ModalHeader>
 
-          <ModalCloseButton />
+          {/* <ModalCloseButton /> */}
 
           <ModalBody backgroundColor={bgCol}>
             <SimpleGrid columns={{ sm: 1, md: 2, xl: 2 }}>
               <SimpleGrid>
                 <Select
                   color={"black"}
-                  placeholder="Company Selection"
+                  placeholder={t("companySelection")}
                   borderColor={"black"}
                 >
                   <option value="option1">Option 1</option>
@@ -87,7 +89,7 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
                 <Input
                   borderColor={"black"}
                   color={"black"}
-                  placeholder="Quantity"
+                  placeholder={t("quantity")}
                   _placeholder={{ opacity: 1, color: "gray" }}
                   size="md"
                   marginBottom={2}
@@ -95,7 +97,7 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
                 <Input
                   borderColor={"black"}
                   color={"black"}
-                  placeholder="Price"
+                  placeholder={t("price")}
                   _placeholder={{ opacity: 1, color: "gray" }}
                   size="md"
                   marginBottom={2}
@@ -103,7 +105,7 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
                 <Input
                   borderColor={"black"}
                   color={"black"}
-                  placeholder="Value"
+                  placeholder={t("value")}
                   _placeholder={{ opacity: 1, color: "gray" }}
                   size="md"
                   marginBottom={2}
@@ -112,7 +114,7 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
 
               <SimpleGrid alignItems={"center"} justifyContent={"center"}>
                 <Text fontSize="sm" align={"center"} color={"#3182CE"}>
-                  Bulletin
+                  {t("bulletin")}
                 </Text>
                 <CardBody>
                   <TableContainer
@@ -122,13 +124,13 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
                     width={"100%"}
                   >
                     <Text align={"center"} fontSize="sm" color={"#38A169"}>
-                      Demand
+                      {t("demand")}
                     </Text>
                     <Table variant="simple">
                       <Thead>
                         <Tr>
-                          <Th>P</Th>
-                          <Th>Q</Th>
+                          <Th>{t("p")}</Th>
+                          <Th>{t("q")}</Th>
                         </Tr>
                       </Thead>
                       <Tbody>
@@ -149,13 +151,13 @@ const BuySellModal = ({ data, bgCol, type, btnCol, heading }) => {
                   </TableContainer>
                   <TableContainer margin={2} width={"100%"}>
                     <Text align={"center"} fontSize="sm" color={"#E53E3E"}>
-                      Supply
+                      {t("supply")}
                     </Text>
                     <Table variant="simple">
                       <Thead>
                         <Tr>
-                          <Th>P</Th>
-                          <Th>Q</Th>
+                          <Th>{t("p")}</Th>
+                          <Th>{t("q")}</Th>
                         </Tr>
                       </Thead>
                       <Tbody>
